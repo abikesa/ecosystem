@@ -132,13 +132,20 @@
 </head>
 
 <body>
-  <div class="top-links">
-    <div class="menu-icon" id="gridToggle">
-      <div></div><div></div><div></div>
-      <div></div><div></div><div></div>
-      <div></div><div></div><div></div>
-    </div>
+<div class="top-links">
+  <input 
+    type="text" 
+    id="searchInput" 
+    placeholder="Search..." 
+    style="position: absolute; top: 1rem; left: 1rem; z-index: 1000; padding: 0.5rem 0.8rem; border: 1px solid #ccc; border-radius: 6px; font-size: 0.9rem;"
+  />
+  <div class="menu-icon" id="gridToggle">
+    <div></div><div></div><div></div>
+    <div></div><div></div><div></div>
+    <div></div><div></div><div></div>
   </div>
+</div>
+
 
   <div class="app-grid" id="gridMenu"></div>
 
@@ -857,7 +864,8 @@
         a.href = url;
         a.target = '_blank';
         a.style.animationDelay = `${i * 0.02}s`;
-
+        a.dataset.name = name.toLowerCase();
+        
         const shouldAnimate = keywordsToAnimate.some(keyword => name.toLowerCase().includes(keyword)) || Math.random() < 0.2;
 
         if (shouldAnimate) {
@@ -879,6 +887,23 @@
         grid.appendChild(a);
       }
     });
+const input = document.getElementById('searchInput');
+
+input.addEventListener('input', (e) => {
+  const query = e.target.value.toLowerCase();
+
+  // Auto-open the grid if it's closed
+  if (menu.style.display !== 'grid') {
+    menu.style.display = 'grid';
+  }
+
+  document.querySelectorAll('#gridMenu a').forEach(link => {
+    const match = link.dataset.name.includes(query);
+    link.style.display = match ? 'flex' : 'none';
+  });
+});
+
+
   </script>
 </body>
 </html>
