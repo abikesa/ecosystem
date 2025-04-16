@@ -1,1 +1,1 @@
-Emergent: Closing the loop, these technology start-ups also get a yearly $4-billion injection in seed-funding grants from the same government research agencies. [Venture capital](assets/docs/ecosystem.pdf) adds a whopping $171 billion to scale those investments.
+Emergent: Closing the loop, these technology start-ups also get a yearly $4-billion injection in seed-funding grants from the same government research agencies. [Venture capital](./assets/docs/ecosystem-nature.pdf) adds a whopping $171 billion to scale those investments.
